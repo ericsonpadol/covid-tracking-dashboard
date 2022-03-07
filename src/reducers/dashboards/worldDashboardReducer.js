@@ -1,3 +1,5 @@
+import { notification } from 'antd'
+
 import { GET_WORLD_CURRENT_FAIL, GET_WORLD_CURRENT_REQUEST, GET_WORLD_CURRENT_SUCCESS } from '../../types/types'
 
 export const worldDashboardReducer = (state = { current: [] }, action) => {
@@ -11,9 +13,11 @@ export const worldDashboardReducer = (state = { current: [] }, action) => {
 
         case GET_WORLD_CURRENT_SUCCESS:
             console.log('PAYLOAD', payload)
+            notification.success({ description: 'Data is fetched successfully.', message: 'SUCCESS!' })
             return { ...state, loading: false, current: payload.data, }
 
         case GET_WORLD_CURRENT_FAIL:
+            notification.error({ description: payload, message: 'ERROR!' })
             return { loading: false, ...state }
 
     }
