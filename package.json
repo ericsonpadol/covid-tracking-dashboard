@@ -27,7 +27,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:dev": "env-cmd -e development npm run start"
+    "build:production":"env-cmd -e production npm run build",
+    "start:dev": "env-cmd -e development npm run start",
+    "start:server": "node server"
   },
   "eslintConfig": {
     "extends": [
